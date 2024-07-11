@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ModeloDualWebMySql.props" />
+</Project>

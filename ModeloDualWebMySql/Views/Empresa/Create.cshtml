@@ -1,0 +1,35 @@
+﻿@model ModeloDualWebMySql.Models.ViewModels.EmpresaViewModel
+@{
+    ViewData["Title"] = "Añadir empresa";
+}
+<h1 class="mb-2">Añadir empresa</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-2">
+                <label asp-for="CodigoEmpresa" class="control-label"></label>
+                <input asp-for="CodigoEmpresa" class="form-control" />
+                <span asp-validation-for="CodigoEmpresa" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="NombreEmpresa" class="control-label"></label>
+                <input asp-for="NombreEmpresa" class="form-control" />
+                <span asp-validation-for="NombreEmpresa" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="CorreoEmpresa" class="control-label"></label>
+                <input asp-for="CorreoEmpresa" class="form-control" />
+                <span asp-validation-for="CorreoEmpresa" class="text-danger"></span>
+            </div>           
+            <div class="form-group mb-2">
+                <input type="submit" value="Añadir" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

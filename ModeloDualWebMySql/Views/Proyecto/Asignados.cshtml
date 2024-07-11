@@ -1,0 +1,28 @@
+﻿@model List<ModeloDualWebMySql.Models.Proyecto>
+@{
+    ViewData["Title"] = "Asignados";
+}
+<h1>Asignados</h1>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Matrícula</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Código proyecto</th>
+            <th>Nombre proyecto</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var proyecto in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(m=>proyecto.Matricula)</td>
+                <td>@Html.DisplayFor(m=>proyecto.MatriculaNavigation.NombreAlumno)</td>
+                <td>@Html.DisplayFor(m=>proyecto.MatriculaNavigation.ApellidoAlumno)</td>
+                <td>@Html.DisplayFor(m=>proyecto.CodigoProyecto)</td>
+                <td>@Html.DisplayFor(m=>proyecto.NombreProyecto)</td>
+            </tr>
+        }
+    </tbody>
+</table>

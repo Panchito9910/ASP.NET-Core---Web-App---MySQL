@@ -1,0 +1,38 @@
+﻿@model List<ModeloDualWebMySql.Models.Empresa>
+@{
+    ViewData["Title"] = "Empresas";
+}
+<h1 class="mb-2">Empresas</h1>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Añadir empresa</a>
+</p>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Código empresa</th>
+            <th>Nombre empresa</th>
+            <th>Correo empresa</th>          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var empresa in Model)
+        {
+            <tr>               
+                <td>@Html.DisplayFor(m=>empresa.CodigoEmpresa)</td>
+                <td>@Html.DisplayFor(m=>empresa.NombreEmpresa)</td>
+                <td>@Html.DisplayFor(m=>empresa.CorreoEmpresa)</td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-action="Edit" asp-route-id="@empresa.IdEmpresa" class="btn btn-primary mx-2">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@empresa.IdEmpresa" class="btn btn-danger mx-2">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,41 @@
+﻿@model ModeloDualWebMySql.Models.ViewModels.ProyectoViewModel
+@{
+    ViewData["Title"] = "Editar proyecto";
+}
+<h1 class="mb-2">Editar proyecto</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <input hidden asp-for="IdProyecto" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-2">
+                <label asp-for="CodigoProyecto" class="control-label"></label>
+                <input asp-for="CodigoProyecto" class="form-control" />
+                <span asp-validation-for="CodigoProyecto" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="NombreProyecto" class="control-label"></label>
+                <input asp-for="NombreProyecto" class="form-control" />
+                <span asp-validation-for="NombreProyecto" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="CodigoEmpresa" class="control-label"></label>
+                <select asp-for="CodigoEmpresa" class="form-control" asp-items="ViewBag.Empresas"></select>
+                <span asp-validation-for="CodigoEmpresa" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <label asp-for="Matricula" class="control-label"></label>
+                <select asp-for="Matricula" class="form-control" asp-items="ViewBag.Alumnos"></select>
+                <span asp-validation-for="Matricula" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-2">
+                <input type="submit" value="Editar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
